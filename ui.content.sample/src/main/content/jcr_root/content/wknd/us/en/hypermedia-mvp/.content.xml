@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/wknd/settings/wcm/templates/content-page-template"
+        jcr:description="MVP page for testing the AEM hypermedia component framework approach."
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Hypermedia MVP"
+        sling:resourceType="wknd/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wknd/components/container">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/container"
+                layout="responsiveGrid">
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Hypermedia MVP"
+                    sling:resourceType="wknd/components/title"/>
+                <text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/text"
+                    text="&lt;p>This page demonstrates server-rendered fragment swaps, edit-mode-safe HTL attributes, no-JS fallback, and client-side pagination as a custom element.&lt;/p>&#xa;"
+                    textIsRich="true"/>
+                <hypermedia_events_demo
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/hypermedia-events-demo"
+                    pageSize="3"
+                    paginationType="pages">
+                    <filters jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            allText="All months"
+                            label="Month"
+                            name="month"
+                            tags="[wknd-events:month/2026-06,wknd-events:month/2026-07,wknd-events:month/2026-08]"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            allText="All locations"
+                            label="Location"
+                            name="location"
+                            tags="[wknd-events:location/berlin,wknd-events:location/hamburg,wknd-events:location/munich]"/>
+                    </filters>
+                </hypermedia_events_demo>
+                <hypermedia_table_demo
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wknd/components/hypermedia-table-demo"
+                    pageSize="3"
+                    paginationType="loadMore"/>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

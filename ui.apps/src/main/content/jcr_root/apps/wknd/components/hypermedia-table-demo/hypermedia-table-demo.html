@@ -1,0 +1,34 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaTableDemo"/>
+
+<section id="${model.id}" class="cmp-hypermedia-table" data-cmp-is="hypermedia-table-demo">
+    <div class="cmp-hypermedia-table__header">
+        <p class="cmp-hypermedia-table__eyebrow">Sortable Table MVP</p>
+        <h2 class="cmp-hypermedia-table__title">Editorial table sorted by server-rendered fragments</h2>
+        <p>Headers are real links for no-JS users. With JavaScript, the table component swaps in-place and keeps existing query parameters.</p>
+        <p>${model.totalRows} matching adventures</p>
+    </div>
+
+    <sly data-sly-resource="${'filter' @
+    resourceType='wknd/components/hypermedia-filter-demo', wcmmode='disabled'}"/>
+
+    <table class="cmp-hypermedia-table__table">
+        <thead>
+            <tr>
+                <th data-sly-repeat.header="${model.headers}" aria-sort="${header.ariaSort}">
+                    <a href="${header.fallbackUrl}" data-sly-attribute="${header.attributes}">${header.label}</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-sly-repeat.row="${model.rows}">
+                <td>${row.adventure}</td>
+                <td>${row.region}</td>
+                <td>${row.difficulty}</td>
+                <td>${row.days}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <sly data-sly-resource="${'pagination' @
+    resourceType='wknd/components/hypermedia-pagination-demo', wcmmode='disabled'}"/>
+</section>

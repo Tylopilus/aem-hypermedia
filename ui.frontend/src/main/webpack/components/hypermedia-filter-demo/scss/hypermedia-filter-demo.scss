@@ -1,0 +1,49 @@
+.cmp-hypermedia-filter {
+    background: #f3f4f6;
+    border-left: .35rem solid #ffea00;
+    margin: 1.5rem 0;
+    padding: 1rem;
+}
+
+.cmp-hypermedia-filter__title {
+    margin: 0 0 .75rem;
+}
+
+.cmp-hypermedia-filter__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 0 0 .75rem;
+}
+
+.cmp-hypermedia-filter__field {
+    display: grid;
+    gap: .35rem;
+    min-width: 12rem;
+}
+
+.cmp-hypermedia-filter__field select,
+.cmp-hypermedia-filter__submit {
+    border: 2px solid #111827;
+    border-radius: 0;
+    font: inherit;
+    padding: .6rem .8rem;
+}
+
+.cmp-hypermedia-filter__submit {
+    background: #111827;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.cmp-hypermedia-filter__refresh {
+    color: #111827;
+    font-weight: 700;
+}
+
+.js {
+    .cmp-hypermedia-filter__submit {
+        display: none;
+    }
+}

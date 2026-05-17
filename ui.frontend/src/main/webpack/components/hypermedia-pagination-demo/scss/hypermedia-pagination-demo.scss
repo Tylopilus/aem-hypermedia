@@ -1,0 +1,25 @@
+.cmp-hypermedia-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+.cmp-hypermedia-pagination__link,
+.cmp-hypermedia-pagination__load-more {
+  border: 1px solid #d0d7de;
+  border-radius: 999px;
+  color: #1f4f7a;
+  padding: .45rem .85rem;
+  text-decoration: none;
+}
+
+.cmp-hypermedia-pagination__link--current,
+.cmp-hypermedia-pagination__load-more {
+  background: #1f4f7a;
+  color: #fff;
+}
+
+.cmp-hypermedia-pagination__link--disabled {
+  color: #6e7781;
+}

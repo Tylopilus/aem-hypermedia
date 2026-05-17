@@ -1,0 +1,276 @@
+.cmp-training-catalog {
+    background: #111827;
+    color: #fff;
+    margin: 2rem 0;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.cmp-training-catalog__eyebrow {
+    color: #ffea00;
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin: 0 0 .5rem;
+    text-transform: uppercase;
+}
+
+.cmp-training-catalog__title {
+    color: inherit;
+    margin: 0 0 .75rem;
+}
+
+.cmp-training-catalog__summary {
+    max-width: 46rem;
+    margin: 0 0 1.5rem;
+}
+
+.cmp-training-catalog__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.cmp-training-catalog__filters {
+    flex: 0 0 auto;
+
+    @media (min-width: 768px) {
+        width: 280px;
+    }
+}
+
+.cmp-training-catalog__form {
+    background: #1f2937;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.cmp-training-catalog__filter-group {
+    margin-bottom: 1.25rem;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.cmp-training-catalog__filter-group-title {
+    font-size: .875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    margin: 0 0 .75rem;
+    color: #ffea00;
+}
+
+.cmp-training-catalog__search-input {
+    width: 100%;
+    background: #111827;
+    border: 2px solid #374151;
+    color: #fff;
+    font: inherit;
+    padding: .6rem .8rem;
+    border-radius: 0.25rem;
+
+    &:focus {
+        outline: none;
+        border-color: #ffea00;
+    }
+}
+
+.cmp-training-catalog__filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.cmp-training-catalog__filter-option {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9375rem;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+        width: 1.125rem;
+        height: 1.125rem;
+        accent-color: #ffea00;
+        cursor: pointer;
+    }
+}
+
+.cmp-training-catalog__filter-actions {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    margin-top: 1.5rem;
+}
+
+.cmp-training-catalog__filter-submit {
+    background: #ffea00;
+    border: none;
+    border-radius: 0.25rem;
+    color: #111827;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    padding: .6rem .8rem;
+    text-align: center;
+}
+
+.cmp-training-catalog__filter-reset {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.js {
+    .cmp-training-catalog__filter-submit {
+        display: none;
+    }
+}
+
+.cmp-training-catalog__results {
+    align-items: start;
+    display: grid;
+    flex: 1 1 auto;
+    gap: 1rem;
+    grid-auto-rows: min-content;
+    grid-template-columns: 1fr;
+    min-width: 0;
+
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr minmax(16rem, 22rem);
+    }
+}
+
+.cmp-training-catalog__search-row {
+    align-self: center;
+
+    @media (min-width: 768px) {
+        grid-column: 2;
+        grid-row: 1;
+    }
+}
+
+.cmp-training-catalog__search-label {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.cmp-training-catalog__results-content {
+    display: contents;
+}
+
+.cmp-training-catalog__results-header {
+    align-self: center;
+
+    @media (min-width: 768px) {
+        grid-column: 1;
+        grid-row: 1;
+    }
+}
+
+.cmp-training-catalog__count {
+    font-weight: 700;
+    margin: 0;
+}
+
+.cmp-training-catalog__empty {
+    background: #1f2937;
+    border-radius: 0.5rem;
+    grid-column: 1 / -1;
+    padding: 2rem;
+    text-align: center;
+}
+
+.cmp-training-catalog__grid {
+    align-self: start;
+    display: grid;
+    gap: 1rem;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.cmp-training-catalog__results .cmp-hypermedia-pagination {
+    grid-column: 1 / -1;
+}
+
+.cmp-training-catalog__card {
+    background: #1f2937;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.cmp-training-catalog__card-header {
+    margin-bottom: .75rem;
+}
+
+.cmp-training-catalog__card-title {
+    color: #fff;
+    font-size: 1.125rem;
+    margin: 0 0 .5rem;
+}
+
+.cmp-training-catalog__card-meta {
+    display: flex;
+    gap: .75rem;
+    font-size: .875rem;
+}
+
+.cmp-training-catalog__card-price {
+    color: #ffea00;
+    font-weight: 700;
+}
+
+.cmp-training-catalog__card-duration {
+    color: #9ca3af;
+}
+
+.cmp-training-catalog__card-description {
+    color: #d1d5db;
+    font-size: .9375rem;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    flex: 1 1 auto;
+}
+
+.cmp-training-catalog__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+}
+
+.cmp-training-catalog__card-tag {
+    background: #374151;
+    border-radius: 9999px;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .25rem .6rem;
+    text-transform: capitalize;
+}
+
+.cmp-training-catalog__card-tag--type {
+    background: #1e3a5f;
+    color: #93c5fd;
+}
+
+.cmp-training-catalog__card-tag--product {
+    background: #3f1e5f;
+    color: #d8b4fe;
+}
+
+.cmp-training-catalog__card-tag--language {
+    background: #1e5f3f;
+    color: #86efac;
+}

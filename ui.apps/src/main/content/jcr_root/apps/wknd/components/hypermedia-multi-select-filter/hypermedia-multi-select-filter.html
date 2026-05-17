@@ -1,0 +1,15 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaMultiSelectFilter"/>
+
+<div class="cmp-training-catalog__filter-group">
+    <h4 class="cmp-training-catalog__filter-group-title">${model.label}</h4>
+    <div class="cmp-training-catalog__filter-options">
+        <input type="hidden" name="${model.name}" value=""/>
+        <label data-sly-repeat.option="${model.options}" class="cmp-training-catalog__filter-option">
+            <input type="checkbox"
+                   name="${model.name}"
+                   value="${option.value}"
+                   checked="${option.selected}"/>
+            <span>${option.label}</span>
+        </label>
+    </div>
+</div>

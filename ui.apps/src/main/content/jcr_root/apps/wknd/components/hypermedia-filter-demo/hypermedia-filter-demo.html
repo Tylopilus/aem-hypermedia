@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaFilterDemo"/>
+
+<section id="${model.id}" class="cmp-hypermedia-filter" data-cmp-is="hypermedia-filter-demo">
+    <h3 class="cmp-hypermedia-filter__title">${model.title}</h3>
+    <form class="cmp-hypermedia-filter__form"
+          method="get"
+          action="${model.filterActionFallbackUrl}"
+          data-sly-attribute="${model.filterActionAttributes}">
+        <input data-sly-repeat.param="${model.preservedQueryParams}" type="hidden" name="${param}" value="${model.preservedQueryParams[param]}"/>
+        <label data-sly-repeat.item="${model.filters}" class="cmp-hypermedia-filter__field ${item.filter.classAppend}">
+            <span>${item.filter.label}</span>
+            <select name="${item.filter.name}">
+                <option value="" selected="${!item.selectedValue}">${item.filter.allText}</option>
+                <option data-sly-repeat.option="${item.filter.options}"
+                        value="${option.value}"
+                        selected="${option.value == item.selectedValue}">${option.label}</option>
+            </select>
+        </label>
+        <label data-sly-test="${model.search.enabled}" class="cmp-hypermedia-filter__field cmp-hypermedia-filter__field--search">
+            <span>${model.search.label}</span>
+            <input type="search" name="${model.search.name}" value="${request.requestParameterMap[model.search.name].toString}"/>
+        </label>
+        <button class="cmp-hypermedia-filter__submit" type="submit">Apply filters</button>
+    </form>
+    <a class="cmp-hypermedia-filter__refresh"
+       href="${model.refreshActionFallbackUrl}"
+       data-sly-attribute="${model.refreshActionAttributes}">Refresh results</a>
+</section>

@@ -53,6 +53,7 @@ Import-Package: javax.annotation;version=0.0.0,*
                 <artifactId>bnd-baseline-maven-plugin</artifactId>
                 <configuration>
                     <failOnMissing>false</failOnMissing>
+                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
@@ -147,6 +148,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,31 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaTrainingCatalog"/>
+
+<div id="${model.resultsContentId}" class="cmp-training-catalog__results-content">
+    <div class="cmp-training-catalog__results-header">
+        <p class="cmp-training-catalog__count">${model.totalTrainings} trainings found</p>
+    </div>
+
+    <div data-sly-test="${model.trainings.isEmpty}" class="cmp-training-catalog__empty">
+        <p>No trainings match your filters.</p>
+    </div>
+
+    <div data-sly-test="${!model.trainings.isEmpty}" class="cmp-training-catalog__grid">
+        <article data-sly-repeat.training="${model.trainings}" class="cmp-training-catalog__card">
+            <div class="cmp-training-catalog__card-header">
+                <h3 class="cmp-training-catalog__card-title">${training.title}</h3>
+                <div class="cmp-training-catalog__card-meta">
+                    <span class="cmp-training-catalog__card-price">${training.price}</span>
+                    <span class="cmp-training-catalog__card-duration">${training.duration}</span>
+                </div>
+            </div>
+            <p class="cmp-training-catalog__card-description">${training.description}</p>
+            <div class="cmp-training-catalog__card-tags">
+                <span data-sly-repeat.tag="${training.types}" class="cmp-training-catalog__card-tag cmp-training-catalog__card-tag--type">${tag}</span>
+                <span data-sly-repeat.tag="${training.products}" class="cmp-training-catalog__card-tag cmp-training-catalog__card-tag--product">${tag}</span>
+                <span data-sly-repeat.tag="${training.languages}" class="cmp-training-catalog__card-tag cmp-training-catalog__card-tag--language">${tag}</span>
+            </div>
+        </article>
+    </div>
+
+    <sly data-sly-resource="${model.paginationResource @ wcmmode='disabled'}"/>
+</div>

@@ -1,0 +1,52 @@
+.cmp-hypermedia-table {
+    background: #f7f2e8;
+    color: #1d1d1d;
+    margin: 2rem 0;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.cmp-hypermedia-table__eyebrow {
+    color: #9c4a1a;
+    font-size: .875rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin: 0 0 .5rem;
+    text-transform: uppercase;
+}
+
+.cmp-hypermedia-table__title {
+    margin: 0 0 .75rem;
+}
+
+.cmp-hypermedia-table__table {
+    background: #fff;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.cmp-hypermedia-table__table th,
+.cmp-hypermedia-table__table td {
+    border: 1px solid #ddcfbd;
+    padding: .75rem;
+    text-align: left;
+}
+
+.cmp-hypermedia-table__table th {
+    background: #27170f;
+    color: #fff;
+}
+
+.cmp-hypermedia-table__table th a {
+    color: inherit;
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.cmp-hypermedia-table__table th[aria-sort="ascending"] a::after {
+    content: " ↑";
+}
+
+.cmp-hypermedia-table__table th[aria-sort="descending"] a::after {
+    content: " ↓";
+}

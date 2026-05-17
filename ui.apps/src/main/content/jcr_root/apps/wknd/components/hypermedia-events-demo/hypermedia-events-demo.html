@@ -1,0 +1,30 @@
+<!--/* MVP sample for server-rendered hypermedia interactions with no-JS fallback. */-->
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaEventsDemo"/>
+
+<section id="${model.id}" class="cmp-hypermedia-events" data-cmp-is="hypermedia-events-demo">
+    <div class="cmp-hypermedia-events__header">
+        <p class="cmp-hypermedia-events__eyebrow">AEM Hypermedia MVP</p>
+        <h2 class="cmp-hypermedia-events__title">Events filtered by server-rendered fragments</h2>
+        <p class="cmp-hypermedia-events__summary">
+            Change a filter with JavaScript enabled to swap this component only. Disable JavaScript and the same form reloads the page with all matching events visible.
+        </p>
+    </div>
+
+    <sly data-sly-resource="${'filter' @ resourceType='wknd/components/hypermedia-filter-demo', wcmmode='disabled'}"/>
+
+    <div class="cmp-hypermedia-events__actions">
+        <p class="cmp-hypermedia-events__count">${model.totalEvents} matching events</p>
+    </div>
+
+    <ol class="cmp-hypermedia-events__items">
+        <li data-sly-repeat.event="${model.events}" class="cmp-hypermedia-events__item">
+            <article class="cmp-hypermedia-events__card">
+                <p class="cmp-hypermedia-events__meta">${event.meta}</p>
+                <h3>${event.title}</h3>
+                <p>This card is canonical server-rendered HTML and remains visible for crawlers and no-JS users.</p>
+            </article>
+        </li>
+    </ol>
+
+    <sly data-sly-resource="${'pagination' @ resourceType='wknd/components/hypermedia-pagination-demo', wcmmode='disabled'}"/>
+</section>

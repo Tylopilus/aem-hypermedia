@@ -1,0 +1,34 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaPaginationDemo"/>
+
+<nav data-sly-test="${model.pagination.type != 'none' && model.pagination.totalItems > model.pagination.pageSize}"
+     id="${model.id}"
+     class="cmp-hypermedia-pagination"
+     data-cmp-is="hypermedia-pagination-demo"
+     aria-label="Pagination">
+    <sly data-sly-test="${model.pagination.type == 'pages'}">
+        <span data-sly-test="${!model.previousLink.enabled}" class="cmp-hypermedia-pagination__link cmp-hypermedia-pagination__link--disabled">Previous</span>
+        <a data-sly-test="${model.previousLink.enabled}"
+           class="cmp-hypermedia-pagination__link"
+           href="${model.previousLink.fallbackUrl}"
+           data-sly-attribute="${model.previousLink.attributes}">Previous</a>
+
+        <sly data-sly-repeat.link="${model.pageLinks}">
+            <span data-sly-test="${link.current}" class="cmp-hypermedia-pagination__link cmp-hypermedia-pagination__link--current" aria-current="page">${link.label}</span>
+            <a data-sly-test="${!link.current}"
+               class="cmp-hypermedia-pagination__link"
+               href="${link.fallbackUrl}"
+               data-sly-attribute="${link.attributes}">${link.label}</a>
+        </sly>
+
+        <span data-sly-test="${!model.nextLink.enabled}" class="cmp-hypermedia-pagination__link cmp-hypermedia-pagination__link--disabled">Next</span>
+        <a data-sly-test="${model.nextLink.enabled}"
+           class="cmp-hypermedia-pagination__link"
+           href="${model.nextLink.fallbackUrl}"
+           data-sly-attribute="${model.nextLink.attributes}">Next</a>
+    </sly>
+
+    <a data-sly-test="${model.pagination.type == 'loadMore' && model.pagination.currentLimit < model.pagination.totalItems}"
+       class="cmp-hypermedia-pagination__load-more"
+       href="${model.loadMoreFallbackUrl}"
+       data-sly-attribute="${model.loadMoreAttributes}">Load more</a>
+</nav>

@@ -1,0 +1,56 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaTrainingCatalog"/>
+
+<sly data-sly-test="${model.resultsRequest}" data-sly-include="results.html"/>
+
+<section data-sly-test="${!model.resultsRequest}" id="${model.id}" class="cmp-training-catalog" data-cmp-is="hypermedia-training-catalog">
+    <header class="cmp-training-catalog__header">
+        <p class="cmp-training-catalog__eyebrow">AEM Hypermedia</p>
+        <h2 class="cmp-training-catalog__title">Training Catalog</h2>
+        <p class="cmp-training-catalog__summary">
+            Multi-select filters powered by server-rendered fragments. Change filters to update results instantly.
+            Disable JavaScript and the form still works with full page reloads.
+        </p>
+    </header>
+
+    <div class="cmp-training-catalog__layout">
+        <aside class="cmp-training-catalog__filters">
+            <form id="${model.formId}"
+                  class="cmp-training-catalog__form"
+                  method="get"
+                  action="${model.filterActionFallbackUrl}"
+                  data-sly-attribute="${model.filterActionAttributes}">
+
+                <div data-sly-repeat.param="${model.preservedQueryParams}">
+                    <input data-sly-repeat.value="${model.preservedQueryParams[param]}" type="hidden" name="${param}" value="${value}"/>
+                </div>
+
+                <input data-sly-repeat.param="${model.resetPaginationParams}" type="hidden" name="${param}" value="${model.resetPaginationParams[param]}"/>
+
+                <sly data-sly-repeat.filterResource="${model.filterResources}"
+                     data-sly-resource="${filterResource @ wcmmode='disabled'}"/>
+
+                <div class="cmp-training-catalog__filter-actions">
+                    <button type="submit" class="cmp-training-catalog__filter-submit">Apply filters</button>
+                    <a class="cmp-training-catalog__filter-reset"
+                       href="${model.refreshActionFallbackUrl}"
+                       data-sly-attribute="${model.refreshActionAttributes}">Reset all</a>
+                </div>
+            </form>
+        </aside>
+
+        <div id="${model.resultsId}" class="cmp-training-catalog__results">
+            <div data-sly-test="${model.search.enabled}" class="cmp-training-catalog__search-row">
+                <label class="cmp-training-catalog__search-label" for="${model.id}-search">${model.search.label}</label>
+                <input id="${model.id}-search"
+                       type="search"
+                       form="${model.formId}"
+                       class="cmp-training-catalog__search-input"
+                       name="${model.search.name}"
+                       value="${request.requestParameterMap[model.search.name].toString}"
+                       placeholder="Search trainings..."/>
+            </div>
+
+            <sly data-sly-include="results.html"/>
+        </div>
+    </div>
+</section>
