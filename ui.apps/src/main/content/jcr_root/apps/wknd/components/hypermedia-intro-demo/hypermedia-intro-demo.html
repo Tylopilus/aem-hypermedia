@@ -1,0 +1,24 @@
+<sly data-sly-use.model="com.adobe.aem.guides.wknd.core.models.HypermediaIntroDemo"/>
+
+<section id="${model.id}" class="cmp-hypermedia-intro" data-cmp-is="hypermedia-intro-demo">
+    <header class="cmp-hypermedia-intro__header">
+        <p class="cmp-hypermedia-intro__eyebrow">AEM Hypermedia Basics</p>
+        <h2 class="cmp-hypermedia-intro__title">${model.title}</h2>
+        <p class="cmp-hypermedia-intro__summary">
+            This small component shows the core idea: AEM renders HTML, links remain real links, and JavaScript can enhance them into fragment swaps.
+        </p>
+    </header>
+
+    <nav class="cmp-hypermedia-intro__topics" aria-label="Hypermedia introduction topics">
+        <a data-sly-repeat.link="${model.topicLinks}"
+           class="cmp-hypermedia-intro__topic ${link.current ? 'cmp-hypermedia-intro__topic--current' : ''}"
+           href="${link.fallbackUrl}"
+           aria-current="${link.current ? 'step' : false}"
+           data-sly-attribute="${link.attributes}">${link.label}</a>
+    </nav>
+
+    <article class="cmp-hypermedia-intro__panel">
+        <p class="cmp-hypermedia-intro__step">${model.activeLabel}</p>
+        <p class="cmp-hypermedia-intro__message">${model.message}</p>
+    </article>
+</section>

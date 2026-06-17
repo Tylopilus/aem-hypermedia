@@ -23,6 +23,10 @@
                     sling:resourceType="wknd/components/text"
                     text="&lt;p>This page demonstrates server-rendered fragment swaps, edit-mode-safe HTL attributes, no-JS fallback, and client-side pagination as a custom element.&lt;/p>&#xa;"
                     textIsRich="true"/>
+                <hypermedia_intro_demo
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Hypermedia Intro"
+                    sling:resourceType="wknd/components/hypermedia-intro-demo"/>
                 <hypermedia_events_demo
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wknd/components/hypermedia-events-demo"
